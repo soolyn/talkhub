@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: USER
   Date: 25. 3. 4.
-  Time: 오전 11:45
+  Time: 오후 5:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,17 +12,21 @@
 </head>
 <body>
 <h1>TalkHub</h1>
-<p>
-    TalkHub 에 오신것을 환영합니다람쥐
-</p>
-
-<form action="${pageContext.request.contextPath}/join">
-    <button type="submit">회원가입</button>
-</form>
-
-<form action="${pageContext.request.contextPath}/login">
+<h3>로그인</h3>
+<form action="${pageContext.request.contextPath}/login-proceed">
+    <p>
+        <label>아이디</label>
+    <div>
+        <input type="text" name="id">
+    </div>
+    </p>
+    <p>
+        <label>비밀번호</label>
+    <div>
+        <input type="password" name="password">
+    </div>
+    </p>
     <button type="submit">로그인</button>
 </form>
-
 </body>
 </html>
