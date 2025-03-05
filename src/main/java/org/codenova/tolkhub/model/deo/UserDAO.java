@@ -1,5 +1,6 @@
 package org.codenova.tolkhub.model.deo;
 
+import org.codenova.tolkhub.Util.ConnectionFactory;
 import org.codenova.tolkhub.model.vo.User;
 
 import java.sql.Connection;
@@ -14,11 +15,7 @@ public class UserDAO {
     public static boolean create(String id, String password, String nickname, String gender, int birth) {
         boolean result = false;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://database-1.cdu6gmecszv2.ap-northeast-2.rds.amazonaws.com:3306/talkhub",
-                    "admin",
-                    "1q2w3e4r");
+            Connection conn = ConnectionFactory.open();
 
             PreparedStatement ps = conn.prepareStatement("insert into users values(?, ?, ?, ?, ?, now())");
             ps.setString(1, id);
@@ -40,11 +37,7 @@ public class UserDAO {
     public static User findById(String specificId) {
         User one = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://database-1.cdu6gmecszv2.ap-northeast-2.rds.amazonaws.com:3306/talkhub",
-                    "admin",
-                    "1q2w3e4r");
+            Connection conn = ConnectionFactory.open();
 
             PreparedStatement ps = conn.prepareStatement("select * from users where id = ?");
             ps.setString(1, specificId);

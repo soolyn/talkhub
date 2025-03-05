@@ -25,7 +25,7 @@ public class LoginProceedServlet extends HttpServlet {
             if (password.equals(user.getPassword())) {
                 resp.sendRedirect(req.getContextPath() + "/index");
             }else{
-
+                req.getRequestDispatcher("WEB-INF/views/login-fail.jsp").forward(req,resp);
             }
         }else{
             req.getRequestDispatcher("WEB-INF/views/login-fail.jsp").forward(req,resp);
