@@ -5,7 +5,7 @@
     <title>TolkHub</title>
 </head>
 <body>
-<h1>TolkHub</h1>
+<h1><a href="${pageContext.request.contextPath}/index">TalkHub</a></h1>
 <h3>토크허브에 회원가입하기</h3>
 <form action="${pageContext.request.contextPath}/join-proceed">
     <p>

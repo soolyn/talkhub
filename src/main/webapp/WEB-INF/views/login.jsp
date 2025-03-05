@@ -11,7 +11,7 @@
     <title>TalkHub</title>
 </head>
 <body>
-<h1>TalkHub</h1>
+<h1><a href="${pageContext.request.contextPath}/index">TalkHub</a></h1>
 <h3>로그인</h3>
 <form action="${pageContext.request.contextPath}/login-proceed">
     <p>

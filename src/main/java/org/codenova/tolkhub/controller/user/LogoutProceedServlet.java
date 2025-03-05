@@ -1,4 +1,4 @@
-package org.codenova.tolkhub.controller;
+package org.codenova.tolkhub.controller.user;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet("/index")
-public class  HomeServlet extends HttpServlet {
+@WebServlet("/logout-proceed")
+public class LogoutProceedServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,10 +18,9 @@ public class  HomeServlet extends HttpServlet {
         HttpSession session = req.getSession();
 
         if(session.getAttribute("user") != null) {
-            req.setAttribute("authentication", true);
-        }else {
-            req.setAttribute("authentication", false);
+            session.removeAttribute("user");
+            System.out.println("logout");
         }
-        req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath());
     }
 }

@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.codenova.tolkhub.model.deo.UserDAO;
 import org.codenova.tolkhub.model.vo.User;
 
@@ -23,6 +24,9 @@ public class LoginProceedServlet extends HttpServlet {
 
         if(user != null) {
             if (password.equals(user.getPassword())) {
+
+                HttpSession session = req.getSession();
+                session.setAttribute("user", user);
                 resp.sendRedirect(req.getContextPath() + "/index");
             }else{
                 req.getRequestDispatcher("WEB-INF/views/login-fail.jsp").forward(req,resp);
