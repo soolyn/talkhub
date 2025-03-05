@@ -3,18 +3,14 @@ package org.codenova.tolkhub.model.deo;
 import org.codenova.tolkhub.Util.ConnectionFactory;
 import org.codenova.tolkhub.model.vo.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class UserDAO {
 
     // 1. 데이터 등록
     // insert into users values(?, ?, ?, ?, ?, now())
-    public static boolean create(String id, String password, String nickname, String gender, int birth) {
+    public static boolean create(String id, String password, String nickname, String gender, int birth) throws ClassNotFoundException, SQLException{
         boolean result = false;
-        try {
             Connection conn = ConnectionFactory.open();
 
             PreparedStatement ps = conn.prepareStatement("insert into users values(?, ?, ?, ?, ?, now())");
@@ -28,9 +24,6 @@ public class UserDAO {
             result = true;
 
             conn.close();
-        } catch (Exception e) {
-            System.out.println("userDAO.create : " + e.toString());
-        }
         return result;
     }
 

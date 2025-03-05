@@ -29,10 +29,12 @@ public class LoginProceedServlet extends HttpServlet {
                 session.setAttribute("user", user);
                 resp.sendRedirect(req.getContextPath() + "/index");
             }else{
-                req.getRequestDispatcher("WEB-INF/views/login-fail.jsp").forward(req,resp);
+                req.setAttribute("id", id);
+                req.getRequestDispatcher("WEB-INF/views/user/login-fail.jsp").forward(req,resp);
             }
         }else{
-            req.getRequestDispatcher("WEB-INF/views/login-fail.jsp").forward(req,resp);
+            req.setAttribute("id", id);
+            req.getRequestDispatcher("WEB-INF/views/user/login-fail.jsp").forward(req,resp);
         }
     }
 }

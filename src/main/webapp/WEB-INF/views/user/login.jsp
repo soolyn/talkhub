@@ -13,7 +13,7 @@
 <body>
 <h1><a href="${pageContext.request.contextPath}/index">TalkHub</a></h1>
 <h3>로그인</h3>
-<form action="${pageContext.request.contextPath}/login-proceed">
+<form action="${pageContext.request.contextPath}/login-proceed" method="post">
     <p>
         <label>아이디</label>
     <div>

@@ -14,6 +14,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req,resp);
+        req.getRequestDispatcher("WEB-INF/views/user/login.jsp").forward(req,resp);
     }
 }
