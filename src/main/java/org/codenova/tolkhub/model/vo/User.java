@@ -6,18 +6,18 @@ public class User {
     private String id;
     private String password;
     private String nickname;
-    private String gander;
+    private String gender;
     private int birth;
     private Date createAt;
 
     public User() {
     }
 
-    public User(String id, String password, String nickname, String gander, int birth, Date createAt) {
+    public User(String id, String password, String nickname, String gender, int birth, Date createAt) {
         this.id = id;
         this.password = password;
         this.nickname = nickname;
-        this.gander = gander;
+        this.gender = gender;
         this.birth = birth;
         this.createAt = createAt;
     }
@@ -46,12 +46,12 @@ public class User {
         this.nickname = nickname;
     }
 
-    public String getGander() {
-        return gander;
+    public String getGender() {
+        return gender;
     }
 
-    public void setGander(String gander) {
-        this.gander = gander;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public int getBirth() {
