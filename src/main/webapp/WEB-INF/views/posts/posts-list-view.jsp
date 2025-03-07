@@ -19,8 +19,8 @@
     ${posts.content}
 </p>
 <div style="color: gray">
-    조회수 : ${posts.views} |
-    <form action="${like}">
+    조회수 : ${posts.views}
+    <form action="${pageContext.request.contextPath}/posts-like-proceed">
         <button type="button" value="${posts.id}" name="id">좋아요</button><span> : ${posts.likes}</span>
     </form>
 </div>
