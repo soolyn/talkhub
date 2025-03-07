@@ -11,7 +11,8 @@
     <title>프로필 - TalkHub</title>
 </head>
 <body>
-<h1>프로필 확인</h1>
+<h1><a href="${pageContext.request.contextPath}/index">TalkHub</a></h1>
+<h2>프로필 확인</h2>
 
 <hr/>
 <ul>
