@@ -28,38 +28,27 @@ public class PostsLikeProceed extends HttpServlet {
             return;
         }
 
-        User requester = (User) req.getSession().getAttribute("user");
-        List<PostsLikes> list = PostsLikeDAO.likesList(requester.getId());
-
-        boolean userLike = false;
-        for (PostsLikes likes : list) {
-            if (likes.getPostsId() == id) {
-                userLike = true;
-                PostsLikes log = PostsLikes.builder().postsId(id).userId(requester.getId()).build();
-                PostsLikeDAO.create(log);
-            }
-        }
+        User user = (User) req.getSession().getAttribute("user");
+        List<PostsLikes> list = PostsLikeDAO.likesList(user.getId());
 
         boolean like = false;
+        for (PostsLikes likes : list) {
+            if (likes.getPostsId() == id) {
+                like = true;
 
-        if (!userLike) {
-            PostsDAO.selectById(id);
-            like = PostsDAO.updatelikes(id);
+            }
+        }
+        if (!like) {
+            PostsDAO.updatelikes(id);
+
+            PostsLikes log = PostsLikes.builder().postsId(id).userId(user.getId()).build();
+            PostsLikeDAO.create(log);
         }
 
         Posts posts = PostsDAO.selectById(id);
 
-        if (like) {
-            if (posts != null) {
-                req.setAttribute("posts", posts);
-                req.getRequestDispatcher("WEB-INF/views/posts/posts-list-view.jsp").forward(req, resp);
-            } else {
-                req.getRequestDispatcher("WEB-INF/views/posts/posts-list-view-fail.jsp").forward(req, resp);
-            }
-        }else{
-            req.getRequestDispatcher("WEB-INF/views/posts/posts-list-view.jsp").forward(req, resp);
-        }
-
+        req.setAttribute("posts", posts);
+        req.getRequestDispatcher("WEB-INF/views/posts/posts-list-view.jsp").forward(req, resp);
     }
 }
 

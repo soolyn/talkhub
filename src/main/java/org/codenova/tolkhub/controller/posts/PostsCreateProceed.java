@@ -29,8 +29,8 @@ public class PostsCreateProceed extends HttpServlet {
 
         if(posts){
             req.getRequestDispatcher("WEB-INF/views/posts/posts-list").forward(req,resp);
-        }else{
-            req.getRequestDispatcher("WEB-INF/views/posts/posts-create-fail").forward(req,resp);
         }
+
+        req.getRequestDispatcher("WEB-INF/views/posts/posts-list-fail").forward(req,resp);
     }
 }

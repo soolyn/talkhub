@@ -40,8 +40,6 @@ public class PostsLikeDAO {
 
         List<PostsLikes> list = new ArrayList<>();
 
-        boolean result = false;
-
         try {
             Connection conn = ConnectionFactory.open();
 

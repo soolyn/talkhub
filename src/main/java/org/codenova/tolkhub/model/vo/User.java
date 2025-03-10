@@ -7,11 +7,11 @@ import lombok.Setter;
 
 import java.util.Date;
 
+
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class User {
     private String id;
     private String password;
@@ -19,4 +19,6 @@ public class User {
     private String gender;
     private int birth;
     private Date createAt;
+
+
 }

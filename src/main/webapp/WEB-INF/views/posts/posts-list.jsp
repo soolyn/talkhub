@@ -14,6 +14,7 @@
 <body>
 <h1><a href="${pageContext.request.contextPath}/index">TalkHub</a></h1>
 <h2>게시판</h2>
+<a href="${pageContext.request.contextPath}/posts-create">글쓰기</a>
 
 <hr/>
     <c:forEach var="one" items="${posts}">

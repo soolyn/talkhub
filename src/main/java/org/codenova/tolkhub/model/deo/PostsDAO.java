@@ -133,7 +133,6 @@ public class PostsDAO {
     public static boolean updatelikes(int postsid){
 
         boolean result = false;
-        boolean userLike;
 
         try(Connection conn = ConnectionFactory.open()) {
 
